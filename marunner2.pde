@@ -179,7 +179,7 @@ class Obstacle{
   void detect(){
     if (xPos< 50+wide && xPos > 50){
       if(yPos > charY && yPos < charY+tall){
-        println("crash" + x);
+        
       }
     }
   }
