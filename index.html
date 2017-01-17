@@ -1,42 +1,7 @@
 <!DOCTYPE html>
 	<html>
 		<style>
-			ul.tab {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-}
-
-/* Float the list items side by side */
-ul.tab li {float: left;}
-
-/* Style the links inside the list items */
-ul.tab li a {
-    display: inline-block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    transition: 0.3s;
-    font-size: 17px;
-}
-
-/* Change background color of links on hover */
-ul.tab li a:hover {background-color: #ddd;}
-
-/* Create an active/current tablink class */
-ul.tab li a:focus, .active {background-color: #ccc;}
-
-/* Style the tab content */
-.tabcontent {
-    display: none;
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-top: none;
-}
+			
 		.header{
 			color: rgb(200, 50 , 50);
 		}
@@ -77,51 +42,24 @@ ul.tab li a:focus, .active {background-color: #ccc;}
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 			<title>James Fleming </title>
 			<script type="text/javascript" src="processing.js"></script>
-			<script>  </script>
-			<script> function openTab(evt, tabName) {
-    // Declare all variables
-    var i, tabcontent, tablinks;
-
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-
-    // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-
-    // Show the current tab, and add an "active" class to the link that opened the tab
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
-}</script>
+			
 		</head>
 		<body>
-		<ul class="tab">
-<li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Games')">Games</a></li>
-   <li><a href="javascript:void(0)"  class="tablinks" onclick="openTab(event, 'Intro')" >Homepage</a></li>
-  
-  <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Arts and Animation')">Arts and Animation</a></li>
-  <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Apps')" >Apps</a></li>
-			
-</ul>
+		
 		<h1 class = "header"> James Games  </h1>
-		<div class = "tabcontent" id = "Intro" >
+		<div >
 		<h2 class = "header"> Welcome to a website created by Marin Academy high schooler James Fleming</h2>
 		<p class = "introx"> This website was developed in order to create a space where my programs can be executed from any computer.
 			In doing so, I learn the basics of game development and web-development through project based discovery</p>
 		<div> 
-		<div class= "tabcontent" id = "Games">
+		<div >
 		 <h3 id="gametitle" >Marin Academy Runner</h3>
 		 <canvas id="mysketch" data-processing-sources="marunner2.pde"/> <canvas>
 		 <div>
-		<div class = "tabcontent" id = "Arts and Animation">
+		<div >
 			<h3 id = "gametitle"> Here is some generative art!</h3>
 			<div>
-		<div class = "tabcontent" id = "Apps">
+		<div>
 			<h3 id = "gametitle"> Here are some apps I have made.</h3>
 			<div>
 		  
