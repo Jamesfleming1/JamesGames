@@ -1,10 +1,17 @@
+/* @pjs preload="run1.png","run2.png","run3.png"; */
 Obstacle[] obstacles; // Declare the array
 int numObstacle = 10;
+float speed = 4;
 int currentObstacle = 0; 
+int score = 88; 
+PImage run1,run2, run3, doRun;
 void setup(){
   size(700, 200);
   frameRate(60);
-  println("help");
+  run1 = loadImage("run1.png");
+  run2 = loadImage("run2.png");
+  run3 = loadImage("run3.png");
+  doRun = loadImage("run1.png");
   obstacles = new Obstacle[numObstacle]; // Create the array
   for (int i = 0; i <obstacles.length; i++) {
     obstacles[i] = new Obstacle(); // Create each object
@@ -13,18 +20,18 @@ void setup(){
   
 }
 
-float charY = 125;
-int x=45;
+float charY = 120;
+int x=39;
 int a = 0;
 boolean jumper;
-int wide = 15;
+int wide = 25;
 int tall = 50; 
 float animater;
 int run;
 
 int c;
 
-void animat(){
+void animate(){
   animater = 10*sin((PI*a)/15)+30;
   a++;
   
@@ -36,29 +43,31 @@ void animat(){
   }
   }
   if (run == 0){
-    tall = 50;
+    tall = 65;
+    doRun = run1;
   }else if (run == 1){
-    tall = 35;
+    tall = 50;
+    doRun = run2;
   }else if (run == 2){
-    tall = 15;
+    tall = 25;
+    doRun = run3;
     
   }
 }
-void jum(){
-    if (keyPressed ){
-      if(charY >125){
-      if(keyCode == UP){
-    x = 0;
-    a = 0;
-    println("help");
-      }
-  }
+
+void jump(){
+    
+    boolean doJump = keyPressed && keyCode == UP && charY>119;
+    if (doJump){
+    x = 1;
+    a = 0; 
     }
-  if (x < 45 ){
-      x+=1;
-  }
-  charY = -100*sin((3.14159265359*x)/45) +125;
-  if (charY > 125){
+  
+  charY = (.25*(pow(x-20, 2)))+20;
+  if (x<40){
+  x++;
+  }//else{print(charY);}
+  if (charY >= 120){
     jumper = false;
   }else {
     jumper = true;
@@ -67,43 +76,70 @@ void jum(){
 }
 
 
-
+int scorer;
 void draw(){
-  background(225,225,225); 
+  
+  background(235, 235,235);
+  /*if (scorer > 415 && scorer < 425){
+    background(0,100,0);
+  }
+  else {
+    background(235,235,235);
+  }
+  */
+  //background(235,235,235); 
+  if(true){
   line(0,150, 700, 150); 
-  rect( 50 , charY , wide , tall);
- 
+  //rect( 50 , charY , wide , tall);
+  image(doRun, 40 , charY, 50 ,50 );
+  scorer = score /4;
+  speed = (4*pow(1.00132263, scorer));
+  text(scorer, 600, 25);
+  
  for (int i = 0; i < obstacles.length; i++) {
     
     obstacles[i].move();
     obstacles[i].drawObstacle();
+    obstacles[i].detect();
+    
     
   }
-  animat();
-  jum();
-  
+  animate();
+  jump();
+  scorechecker();
+  }
 }
-
-void mousePressed(){
- 
-  obstacles[currentObstacle].start(500, 125);
+float objectDistance;
+int scorechecker(){
+  score++;
+  
+  objectDistance = (720/round(speed));
+  
+  if (score % objectDistance == 0){
+  obstacles[currentObstacle].start(random(700, 800), 125);
   currentObstacle++;
+  
+  }
   
   if (currentObstacle >= numObstacle){
     currentObstacle = 0;
   }
+   return score;
 }
+
 class Obstacle{
   float xPos, yPos;
+  
   boolean on = false;
   void start(float xpos, float ypos){
     xPos = xpos;
     yPos = ypos;
+    
     on = true;
   }
   void move(){
     if (on == true){
-      xPos-=6;
+      xPos-=speed;
     }
     if (xPos <- 50){
       on = false;
@@ -112,9 +148,17 @@ class Obstacle{
   }
   void drawObstacle(){
     if (on == true){
-    
-    rect (xPos, yPos, 50, 50);
+    fill(50, 100, random(50,100));
+    rect (xPos-50, yPos, 50, 50);
+    }
+   
+  }
+  void detect(){
+    if (xPos< 50+wide && xPos > 50){
+      if(yPos > charY && yPos < charY+tall){
+        println("crash" + x);
+      }
     }
   }
-  
+
 }
