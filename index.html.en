@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+	<html>
+		<style>
+		h1{
+			color: rgb(200, 50 , 50);
+		}
+		body{
+		background: rgb(225, 225, 225);
+		}
+		.run{
+		background: rgb(200, 50, 50); 
+		width: 750px;
+		 
+		}
+		.art1{
+		background: rgb(45 , 45, 45); 
+		width: 750px;
+		
+		top 5000px;		}
+		#gametitle{
+		color:rgb(10,10,10);
+		position:relative;
+		left:27px;
+		}
+		#mysketch{
+		position:relative;
+		left:25px;
+		bottom:10px;
+		
+		}
+		</style>
+		<head>
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+			<title>My Processing Page</title>
+			<script type="text/javascript" src="processing.js"></script>
+			
+		</head>
+		<body>
+		
+		<h1> MARIN ACADEMY </h1>
+		<div class= "run">
+		 <h3 id="gametitle" >Here is a game I have created!</h3>
+		 <canvas id="mysketch" data-processing-sources="marunner2.pde"/></canvas>
+		  </div>
+		  
+		</body>
+	</html>
