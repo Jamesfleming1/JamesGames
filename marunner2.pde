@@ -59,7 +59,8 @@ void animate(){
 void jump(){
     
     boolean doJump = keyPressed && keyCode == UP && charY>119;
-    if (doJump){
+    boolean doPress = mousePressed && charY>119;
+    if (doJump || doPress){
     x = 1;
     a = 0; 
     }
@@ -179,7 +180,7 @@ class Obstacle{
   void detect(){
     if (xPos< 50+wide && xPos > 50){
       if(yPos > charY && yPos < charY+tall){
-        
+        println("crash" + x);
       }
     }
   }
