@@ -77,6 +77,7 @@ ul.tab li a:focus, .active {background-color: #ccc;}
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 			<title>James Fleming </title>
 			<script type="text/javascript" src="processing.js"></script>
+			<script> document.getElementById("defaultOpen").click(); </script>
 			<script> function openTab(evt, tabName) {
     // Declare all variables
     var i, tabcontent, tablinks;
@@ -101,7 +102,7 @@ ul.tab li a:focus, .active {background-color: #ccc;}
 		<body>
 		<ul class="tab">
 <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Games')">Games</a></li>
-   <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Intro')">Homepage</a></li>
+   <li><a href="javascript:void(0)" id = "defaultOpen" class="tablinks" onclick="openTab(event, 'Intro')">Homepage</a></li>
   
   <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Arts and Animation')">Arts and Animation</a></li>
   <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Apps')">Apps</a></li>
