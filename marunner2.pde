@@ -1,10 +1,11 @@
 /* @pjs preload="run1.png","run2.png","run3.png"; */
 Obstacle[] obstacles; // Declare the array
-int numObstacle = 10;
+int numObstacle = 50;
 float speed = 4;
 int currentObstacle = 0; 
 int score = 88; 
 PImage run1,run2, run3, doRun;
+
 void setup(){
   size(700, 200);
   frameRate(60);
@@ -80,22 +81,11 @@ int scorer;
 void draw(){
   
   background(235, 235,235);
-  /*if (scorer > 415 && scorer < 425){
-    background(0,100,0);
-  }
-  else {
-    background(235,235,235);
-  }
-  */
-  //background(235,235,235); 
   if(true){
   line(0,150, 700, 150); 
   //rect( 50 , charY , wide , tall);
   image(doRun, 40 , charY, 50 ,50 );
-  scorer = score /4;
-  speed = (4*pow(1.00132263, scorer));
-  fill(0,20,175);
-  text(round(scorer), 600, 25);
+  
   
  for (int i = 0; i < obstacles.length; i++) {
     
@@ -111,38 +101,57 @@ void draw(){
   }
 }
 float objectDistance;
-int scorechecker(){
+int randumb;
+void scorechecker(){
   score++;
   
-  objectDistance = (720/round(speed));
+  scorer = (score/4);
+  //speed = (4*pow(1.00132263, scorer));
+  speed = 7;
+  fill(0,20,175);
+  text(round(scorer), 600, 25);
   
-  if (score % objectDistance == 0){
-  obstacles[currentObstacle].start(random(700, 800), 125);
+  if (score % 80 == 0){
+  //float ranPos = random(700,800);
+  float ranPos = 700;
+  
+  if (scorer < 500){
+   randumb = int(random(0,3)); 
+  }
+  else if (scorer>= 500){
+   randumb = int(random(0,4));
+  }
+  obstacles[currentObstacle].start(ranPos, 125, randumb);
+  
   currentObstacle++;
+  
   
   }
   
   if (currentObstacle >= numObstacle){
     currentObstacle = 0;
   }
-   return score;
+   
+   
 }
 
 class Obstacle{
   float xPos, yPos;
+  int ranNum;
   
   boolean on = false;
-  void start(float xpos, float ypos){
+  void start(float xpos, float ypos, int rannum){
     xPos = xpos;
     yPos = ypos;
     
     on = true;
+    ranNum = rannum;
   }
   void move(){
     if (on == true){
       xPos-=speed;
     }
-    if (xPos <- 50){
+    if (xPos <- 100){
       on = false;
       xPos = -100;
     }
@@ -150,7 +159,20 @@ class Obstacle{
   void drawObstacle(){
     if (on == true){
     fill(50, 100, random(50,100));
-    rect (xPos-50, yPos, 50, 50);
+    
+    if (ranNum == 2){
+     rect (xPos-65, yPos, 50, 50);
+     rect (xPos, yPos, 50, 50);
+    }
+    else if (ranNum == 3){
+      rect (xPos-65, yPos, 50, 50);
+     rect (xPos, yPos, 50, 50);
+     rect(xPos+65, yPos, 50 ,50);
+      
+    }
+    else{
+      rect (xPos, yPos, 50, 50);
+    }
     }
    
   }
