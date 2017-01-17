@@ -55,12 +55,17 @@ void animate(){
     
   }
 }
-
+void mousePressed(){
+  if (charY>119){
+    x = 1;
+    a =0;
+  }
+}
 void jump(){
     
     boolean doJump = keyPressed && keyCode == UP && charY>119;
-    boolean doPress = mousePressed && charY>119;
-    if (doJump || doPress){
+    
+    if (doJump){
     x = 1;
     a = 0; 
     }
@@ -106,15 +111,15 @@ int randumb;
 void scorechecker(){
   score++;
   
-  scorer = (score/4);
+  scorer = (score/5);
   //speed = (4*pow(1.00132263, scorer));
   speed = 7;
   fill(0,20,175);
   text(round(scorer), 600, 25);
   
   if (score % 80 == 0){
-  float ranPos = random(700,800);
-  
+  //float ranPos = random(700,800);
+  float ranPos = 700;
   
   if (scorer < 500){
    randumb = int(random(0,3)); 
