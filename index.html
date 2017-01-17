@@ -77,7 +77,7 @@ ul.tab li a:focus, .active {background-color: #ccc;}
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 			<title>James Fleming </title>
 			<script type="text/javascript" src="processing.js"></script>
-			<script> function openTab(evt, cityName) {
+			<script> function openTab(evt, tabName) {
     // Declare all variables
     var i, tabcontent, tablinks;
 
@@ -94,18 +94,20 @@ ul.tab li a:focus, .active {background-color: #ccc;}
     }
 
     // Show the current tab, and add an "active" class to the link that opened the tab
-    document.getElementById(cityName).style.display = "block";
+    document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
 }</script>
 		</head>
 		<body>
 		<ul class="tab">
+  <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'intro')">Intro</a></li>
   <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Games')">Games</a></li>
   <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Arts and Animation')">Arts and Animation</a></li>
   <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Apps')">Apps</a></li>
+			
 </ul>
 		<h1 class = "header"> James Games  </h1>
-		<div id = "intro">
+		<div class = "tabcontent" id = "intro">
 		<h2 class = "header"> Welcome to a website created by Marin Academy high schooler James Fleming</h2>
 		<p class = "intro"> This website was developed in order to create a space where my programs can be executed from any computer.
 			In doing so, I learn the basics of game development and web-development through project based discovery</p>
