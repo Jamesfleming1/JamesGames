@@ -77,11 +77,11 @@ ul.tab li a:focus, .active {background-color: #ccc;}
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 			<title>James Fleming </title>
 			<script type="text/javascript" src="processing.js"></script>
-			<script> document.getElementById("defaultOpen").click(); </script>
+			<script>  </script>
 			<script> function openTab(evt, tabName) {
     // Declare all variables
     var i, tabcontent, tablinks;
-
+	document.getElementById("defaultOpen").click();
     // Get all elements with class="tabcontent" and hide them
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
@@ -102,10 +102,10 @@ ul.tab li a:focus, .active {background-color: #ccc;}
 		<body>
 		<ul class="tab">
 <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Games')">Games</a></li>
-   <li><a href="javascript:void(0)"  class="tablinks" onclick="openTab(event, 'Intro')">Homepage</a></li>
+   <li><a href="javascript:void(0)"  class="tablinks" onclick="openTab(event, 'Intro')" id = "defaultOpen">Homepage</a></li>
   
   <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Arts and Animation')">Arts and Animation</a></li>
-  <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Apps')" id = "defaultOpen">Apps</a></li>
+  <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Apps')" >Apps</a></li>
 			
 </ul>
 		<h1 class = "header"> James Games  </h1>
