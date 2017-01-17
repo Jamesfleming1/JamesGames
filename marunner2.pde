@@ -94,7 +94,8 @@ void draw(){
   image(doRun, 40 , charY, 50 ,50 );
   scorer = score /4;
   speed = (4*pow(1.00132263, scorer));
-  text(scorer, 600, 25);
+  fill(0,20,175);
+  text(round(scorer), 600, 25);
   
  for (int i = 0; i < obstacles.length; i++) {
     
