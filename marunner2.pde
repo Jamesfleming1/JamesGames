@@ -113,8 +113,8 @@ void scorechecker(){
   text(round(scorer), 600, 25);
   
   if (score % 80 == 0){
-  //float ranPos = random(700,800);
-  float ranPos = 700;
+  float ranPos = random(700,800);
+  
   
   if (scorer < 500){
    randumb = int(random(0,3)); 
@@ -180,7 +180,7 @@ class Obstacle{
   void detect(){
     if (xPos< 50+wide && xPos > 50){
       if(yPos > charY && yPos < charY+tall){
-        println("crash" + x);
+        
       }
     }
   }
