@@ -148,6 +148,7 @@ class Obstacle{
   float xPos, yPos;
   int ranNum;
   boolean on = false;
+  int distance = 70;
   void start(float xpos, float ypos, int rannum){
     xPos = xpos;
     yPos = ypos;
@@ -159,9 +160,9 @@ class Obstacle{
     if (on){
       xPos-=speed;
     }
-    if (xPos <- 100){
+    if (xPos <- 200){
       on = false;
-      xPos = -100;
+      xPos = -200;
     }
   }
   void drawObstacle(){
@@ -169,13 +170,13 @@ class Obstacle{
     fill(50, 100, random(50,100));
     
     if (ranNum == 2){
-     rect (xPos-70, yPos, 50, 50);
+     rect (xPos+distance, yPos, 50, 50);
      rect (xPos, yPos, 50, 50);
     }
     else if (ranNum == 3){
-      rect (xPos-70, yPos, 50, 50);
+      rect (xPos+distance, yPos, 50, 50);
      rect (xPos, yPos, 50, 50);
-     rect(xPos+70, yPos, 50 ,50);
+     rect(xPos+(distance * 2), yPos, 50 ,50);
       
     }
     else{
@@ -185,11 +186,24 @@ class Obstacle{
    
   }
   void detect(){
-    if (charX+wide>xPos && charX+wide<xPos+50+wide){
-      if (charY+tall >yPos){
+    boolean one = charX+wide>xPos && charX+wide<xPos+50+wide && charY+tall >yPos;
+    boolean two = charX+wide>xPos && charX<xPos+130 && charY+tall >yPos;
+    boolean three = charX+wide>xPos && charX+wide<xPos+230+wide && charY+tall >yPos;
+    if (ranNum ==2){
+      if (two){
+        scene = false;
+        
+        
+      }
+    if (ranNum ==3){
+      if (three){
         scene = false;
       }
     }
+    }else{
+      if (one){
+        scene = false; 
+      }
+    }
   }
-
 }
