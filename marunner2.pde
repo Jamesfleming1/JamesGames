@@ -1,6 +1,6 @@
 /* @pjs preload="run1.png","run2.png","run3.png"; */
 Obstacle[] obstacles; // Declare the array
-int numObstacle = 50;
+int numObstacle = 20;
 float speed = 4;
 int currentObstacle = 0; 
 int score = 88; 
@@ -28,7 +28,7 @@ int charX = 50;
 int x=39;
 int a = 0;
 boolean jumper;
-int wide = 25;
+int wide = 20;
 int tall = 50; 
 float animater;
 int run;
@@ -97,7 +97,7 @@ void draw(){
    background(235, 235,235);
   line(0,150, 700, 150); 
   //rect( charX , charY , wide , 50);
-  image(doRun, 40 , charY, 50 ,50 );
+  image(doRun, 35 , charY, 50 ,50 );
  for (int i = 0; i < obstacles.length; i++) {
     obstacles[i].move();
     obstacles[i].drawObstacle();
@@ -120,7 +120,7 @@ float objectDistance;
 int randumb;
 void scorechecker(){
   score++;
-  scorer = (score/5);
+  scorer = (score/1);
   
   speed = 6;
   fill(0,20,175);
@@ -166,6 +166,7 @@ class Obstacle{
     }
   }
   void drawObstacle(){
+    
     if (on == true){
     fill(50, 100, random(50,100));
     
@@ -173,37 +174,34 @@ class Obstacle{
      rect (xPos+distance, yPos, 50, 50);
      rect (xPos, yPos, 50, 50);
     }
-    else if (ranNum == 3){
-      rect (xPos+distance, yPos, 50, 50);
+    if (ranNum == 3){
+     rect (xPos+distance-5, yPos, 50, 50);
      rect (xPos, yPos, 50, 50);
-     rect(xPos+(distance * 2), yPos, 50 ,50);
-      
+     rect(xPos+distance+distance-10, yPos, 50 ,50);
+     
     }
     else{
       rect (xPos, yPos, 50, 50);
+      
     }
     }
    
   }
-  void detect(){
+  void detect(){ // Module of Obstacle detecting 
     boolean one = charX+wide>xPos && charX+wide<xPos+50+wide && charY+tall >yPos;
-    boolean two = charX+wide>xPos && charX<xPos+130 && charY+tall >yPos;
-    boolean three = charX+wide>xPos && charX+wide<xPos+230+wide && charY+tall >yPos;
+    boolean two = charX+wide>xPos && charX<xPos+120 && charY+tall >yPos;
+    boolean three = charX+wide>xPos && charX<xPos+180 && charY+tall >yPos;
+    
     if (ranNum ==2){
-      if (two){
-        scene = false;
-        
-        
-      }
-    if (ranNum ==3){
-      if (three){
-        scene = false;
-      }
+      if (two){scene = false;}
     }
-    }else{
-      if (one){
-        scene = false; 
-      }
+    if (ranNum == 3){
+      if (three){scene = false;}
+    }
+    else{
+      if (one){scene = false;}
     }
   }
-}
+
+
+} //Closing bracket of Class Obstacle
