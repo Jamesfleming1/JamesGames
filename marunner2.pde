@@ -120,7 +120,7 @@ float objectDistance;
 int randumb;
 void scorechecker(){
   score++;
-  scorer = (score/1);
+  scorer = (score/5);
   
   speed = 6;
   fill(0,20,175);
