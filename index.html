@@ -42,7 +42,14 @@
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 			<title>James Fleming </title>
 			<script type="text/javascript" src="processing.js"></script>
-			
+			<script type ="text/javascript">
+				function drawSomeText(id){
+					var pjs = Processing.getInstanceById(id);
+					var text = document.getElementById("inputtext").value;
+					pjs.drawText(text);
+				}
+			</script>
+				
 		</head>
 		<body>
 		
@@ -61,7 +68,9 @@
 		<div>
 		<h2> Art</h2>
 			<h4> Click and Drag </h4>
-			<canvas data-processing-sources="phrase.pde"/> <canvas>
+			<canvas id = "mysketchcanvasid" data-processing-sources="phrase.pde"/> <canvas>
+			<input type = "textfield" value = "my text" id = "inputtext"/>
+			<button onclick="drawSomeText('mysketchcanvasid')"/>
 			</div>
 		
 		<h3 > Apps</h3>
