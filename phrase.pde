@@ -1,5 +1,9 @@
 Phrase[] phrases;
-String userInput = "EECS";
+String userInput;
+void drawText(String t){
+  userInput = t;
+}
+
 int numPhrase = 300;
 int currentPhrase = 0;
 
@@ -19,11 +23,12 @@ void load(){
 
 class Phrase{
   float xPos, yPos;
-  String Input;
+  
   boolean on = false;
   int txt = 50;
   int blue = 255;
   void start(float xpos, float ypos){
+    
     xPos = xpos;
     yPos = ypos;
     on = true;
