@@ -2,4 +2,6 @@
 def outPutScore(name, score):
     print (name + " " + str(score))
 outPutScore("James", 900)
-print("Test")
+while 1:
+    if mousePressed:
+        print("Hey")
