@@ -25,6 +25,9 @@
 		.wordart{
 			padding:10px;
 			}
+		.button{
+			background-color: rgb(0,20,175);
+			}
 		#gametitle{
 		color:rgb(10,10,10);
 		position:relative;
@@ -71,11 +74,13 @@
 		
 		<h2> Art</h2>
 		<div class = "wordart">
-		<h4> Enter Text and Then Click and Drag </h4>
+		<h4 class ="header"> Enter Text and Then Click and Drag </h4>
 		<input type = "textfield" value = "Enter Text Here" id = "inputtext"/>
 		<button onclick="drawSomeText('phrase')"> Enter </button>
-		<canvas id = "phrase" data-processing-sources="phrase.pde"> </canvas>
+			<div>
+				<canvas id = "phrase" data-processing-sources="phrase.pde"> </canvas>
 			</div>
+		</div>
 			
 		
 		
