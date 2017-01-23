@@ -1,11 +1,11 @@
 //
-/* @pjs preload="run1.png","run2.png","run3.png"; */ //preloading images for website
+/* @pjs preload="run1.png","run2.png","run3.png", "backpack.png"; */ //preloading images for website
 Obstacle[] obstacles; // Declare the array for the obstacles / backpacks
 int numObstacle = 30; 
 float speed = 4; // speed of the obstacles 
 int currentObstacle = 0; 
 int score = 0; 
-PImage run1,run2, run3, doRun; //declaring images 
+PImage run1,run2, run3, doRun, backpack; //declaring images 
 
 void setup(){
   size(700, 200); // size of screen + framerate
@@ -13,6 +13,7 @@ void setup(){
   run1 = loadImage("run1.png"); // loading images
   run2 = loadImage("run2.png");
   run3 = loadImage("run3.png");
+  backpack = loadImage("backpack.png");
   doRun = loadImage("run1.png");
   }
 
@@ -48,13 +49,10 @@ void animate(){ // animating the character aka switching between images
   }
   }
   if (run == 0){
-    tall = 65;
     doRun = run1; //assign image 1 
   }else if (run == 1){
-    tall = 50;
     doRun = run2; // assign image 2 
   }else if (run == 2){
-    tall = 25;
     doRun = run3; //assign image three
     
   }
@@ -100,6 +98,7 @@ void draw(){ // MAIN loop
   if(scene){ //displaying the actual game 
   background(235, 235,235); // background color 
   line(0,150, 700, 150);  // a line on the background
+  //rect(charX, charY, wide, tall);
   image(doRun, 35 , charY, 50 ,50 ); // displaying the character
  for (int i = 0; i < obstacles.length; i++) { //running the modules for each object 
     obstacles[i].move();
@@ -163,7 +162,7 @@ class Obstacle{
   float xPos, yPos;
   int ranNum;
   boolean on = false;
-  int distance = 70;
+  
   void start(float xpos, float ypos, int rannum){
     xPos = xpos;
     yPos = ypos; 
@@ -183,16 +182,22 @@ class Obstacle{
     if (on == true){ //if obstacle is in dislay mode 
     fill(50, 100, 150); // color of obstacles 
     if (ranNum == 2){ // for 2 obstacles create 2 squares
-     rect (xPos+distance, yPos, 50, 50);
-     rect (xPos, yPos, 50, 50);
+     //rect (xPos+ 70 , yPos, 50, 50);
+     //rect (xPos, yPos, 50, 50);
+     image(backpack, xPos-5, yPos-5,60,60);
+     image(backpack , xPos+ 65, yPos-5,60,60);
     }
     if (ranNum == 3){ // for 3 obstacles create 3 squares
-     rect (xPos+60, yPos, 50, 50);
-     rect (xPos, yPos, 50, 50);
-     rect(xPos+120, yPos, 50 ,50);
+     //rect (xPos+60, yPos, 50, 50);
+     //rect (xPos, yPos, 50, 50);
+     //rect(xPos+120, yPos, 50 ,50);
+     image(backpack, xPos-5, yPos-5,60,60);
+     image(backpack, xPos+55, yPos-5,60,60);
+     image(backpack, xPos+115, yPos-5,60,60);
     }
     else{ // for 1 obstacle create 1 square
-      rect (xPos, yPos, 50, 50);
+      //rect (xPos, yPos, 50, 50);
+      image(backpack, xPos-5, yPos-5,60,60);
     }
     } // closing for display mode
   } // closing bracket for Obstacle.drawObstacle
