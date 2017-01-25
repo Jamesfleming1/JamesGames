@@ -58,11 +58,7 @@
 			<title>James Fleming </title>
 			<script type="text/javascript" src="processing.js"></script>
 			<script type ="text/javascript">
-				function outputHighscore(docname){
-					var pjs = Processing.getInstanceById(docname)
-					var put = document.getElementById("inputName").value;
-					pjs.inputEnter(put);
-				}
+				
 				function drawSomeText(id){
 					var pjs = Processing.getInstanceById(id);
 					var text = document.getElementById("inputtext").value;
@@ -93,8 +89,7 @@
 		<h2 class = "header" >Games</h2>
 		 <h3 id="gametitle" >Marin Academy Runner</h3>
 		<canvas id="mysketch" data-processing-sources="marunner2.pde"> </canvas>
-		<input type = "textfield" value = "Enter Name Here" id = "inputName"/>
-		<button class = "button" onclick="outputHighscore('mysketch')"> Enter </button>
+		
 		</div>
 		
 		
