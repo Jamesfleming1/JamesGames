@@ -6,10 +6,7 @@ float speed;
 int currentObstacle = 0; 
 int score = 0; 
 PImage run1,run2, run3, doRun, backpack; //declaring images 
-String lines[];
-PrintWriter output;
 
-int i = 0;
 
 void setup(){
   size(700, 200); // size of screen + framerate
@@ -19,28 +16,10 @@ void setup(){
   run3 = loadImage("run3.png");
   backpack = loadImage("backpack.png");
   doRun = loadImage("run1.png");
-  lines = loadStrings("highscore.txt");
-  output = createWriter("highscore.txt");
+  
   }
 
-void inputEnter(String NAME){
-  String[] newdata = appendScore(lines, NAME, score);
-  outputData(newdata, output);
-}
-String[] appendScore(String[] data, String Name, int Score){
-  data = append(data, Name + " " + str(Score));
-  return data;
-}
-void outputData(String[] NEWDATA, PrintWriter OUTPUT){
-  if(i<1){
-    String FINAL = join(NEWDATA, " ");
-    OUTPUT.println((FINAL));
-    i++;
-  }
-  OUTPUT.flush();
-  OUTPUT.close();
-  
-}
+
 void load(){
   score = 0; // start/reset the score
   obstacles = new Obstacle[numObstacle]; // Create/reset the array
