@@ -1,11 +1,11 @@
 //
-/* @pjs preload="run1.png","run2.png","run3.png", "backpack.png"; */ //preloading images for website
+/* @pjs preload="cloud0.png", "cloud1.png", run1.png","run2.png","run3.png", "backpack.png"; */ //preloading images for website
 Obstacle[] obstacles; // Declare the array for the obstacles / backpacks
 int numObstacle = 30; 
 float speed;
 int currentObstacle = 0; 
 int score = 0; 
-PImage run1,run2, run3, doRun, backpack; //declaring images 
+PImage run1,run2, run3, doRun, backpack, cloud,cloud1; //declaring images 
 
 
 void setup(){
@@ -16,7 +16,8 @@ void setup(){
   run3 = loadImage("run3.png");
   backpack = loadImage("backpack.png");
   doRun = loadImage("run1.png");
-  
+  cloud = loadImage("cloud0.png");
+  cloud1 = loadImage("cloud1.png");
   }
 
 
@@ -36,7 +37,8 @@ int wide = 20; // width of character
 int tall = 50; // height of character/
 int b = 1; 
 int run;
-
+int c;
+int c1 = 700;
 void animate(){ // animating the character aka switching between images
   if (a==0){
     b=1;
@@ -99,10 +101,21 @@ int scorer;
 void draw(){ // MAIN loop
   textAlign(CENTER);
   if(scene){ //displaying the actual game 
-  background(235, 235,235); // background color 
+  background(235, 235,235);
+  image(cloud, c, 0);// background color
+  c1-=2;
+  if (c1==-698){
+    c1 = 698;
+  }
+  if (c==-698){
+    c = 698;
+  }
+  c-=2;
+  image(cloud1, c1, 0);
   line(0,150, 700, 150);  // a line on the background
   //rect(charX, charY, wide, tall);
-  image(doRun, 35 , charY, 50 ,50 ); // displaying the character
+  image(doRun, 35 , charY, 50 ,50 );// displaying the character
+  
  for (int i = 0; i < obstacles.length; i++) { //running the modules for each object 
     obstacles[i].move();
     obstacles[i].drawObstacle();
