@@ -165,7 +165,7 @@ void scorechecker(){
    //randumb = 3;
   }
   else if (scorer>= 420){
-   randumb = int(random(0,4));
+   randumb = int(random(0,3));
   }
   obstacles[currentObstacle].start(ranPos, 125, randumb);
   currentObstacle++;
