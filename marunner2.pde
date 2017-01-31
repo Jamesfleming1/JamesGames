@@ -138,7 +138,7 @@ void draw(){ // MAIN loop
     text("Click to Try Harder Next Semester", width/2, (height/2));
     text("Your Score Was: " + round(scorer),width/2, (height/2)+40);
     textSize(20);
-    text("You are probably disapointed by that grade...",width/2, (height/2)+65);
+    text("You are probably disappointed by that grade...",width/2, (height/2)+65);
     }
     else{ // displaying the homescreen the second time
       fill(red);
