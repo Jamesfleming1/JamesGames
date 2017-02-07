@@ -52,7 +52,7 @@ class Fish {
     if(distanceMag <= r + user.r){
       if (user.r > r){
       on = false;
-      size +=r/15;
+      sized +=r/15;
       fishRemaining -=1;
       velocity = new PVector(0,0);
       
@@ -106,12 +106,12 @@ class Fish {
 PVector character; 
 int radius = 50;
 boolean mode = false;
-float size = 20;
+float sized = 20;
 void draw(){
   background(0, 50, 75);
   textAlign(CENTER);
   if (scene){
-  Fish james = new Fish(mouseX, mouseY, size , color(0,0,255));
+  Fish james = new Fish(mouseX, mouseY, sized , color(0,0,255));
   mode = true;
  
   if (fishRemaining == 0){
@@ -126,7 +126,7 @@ void draw(){
   }
   james.display();
   }else if (!scene){
-    size = 20;
+    sized = 20;
     
     textSize(45);
     
