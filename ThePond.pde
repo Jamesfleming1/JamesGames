@@ -6,7 +6,7 @@ void setup(){
 
 boolean scene = false;
 Fish[] fishes;
-int numFish = 10;
+int numFish = 15;
 int fishRemaining = numFish;
 boolean havePlayed = false;
 void load(){
