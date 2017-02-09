@@ -1,20 +1,19 @@
 
 void setup(){
   size(700, 600);
- 
 }
-
 boolean scene = false;
 Fish[] fishes;
-int numFish = 15;
+int numFish = 15; // number of starting enemies;
 int fishRemaining = numFish;
 boolean havePlayed = false;
+float sized = 20; // starting size of character 
 void load(){
   
   fishes = new Fish[numFish];
   for (int i = 0; i<fishes.length; i++){
     color randomColor = color(random(255), random(255), random(255));
-    fishes[i] = new Fish(random(width), random(height), random(10,numFish + 10), color(randomColor));
+    fishes[i] = new Fish(random(width), random(75,height), random(10,numFish + 10), color(randomColor));
     
   }
 }
@@ -58,14 +57,11 @@ class Fish {
       
     }else{
       scene = false;
-     
     }
     }
     }
-    
   }
-    
-  
+   
   void checkBoundaryCollision(){
     if(position.x>width-r){
       position.x = width-r; //width - r is the right side
@@ -90,29 +86,20 @@ class Fish {
   }
   void display(){
     if(on){
-    //fill(#ffffff);
-    if (mode){
     stroke(#ffffff);
     fill(Outline);
-    }
-    if (mode == false){
-      stroke(Outline);
-      fill(#ffffff);
-    }
     ellipse(position.x, position.y, r*2, r*2);
   }
   }
-}
-PVector character; 
-int radius = 50;
-boolean mode = false;
-float sized = 20;
+} // closing bracket of class Fish
+
+
 void draw(){
   background(0, 50, 75);
   textAlign(CENTER);
   if (scene){
   Fish james = new Fish(mouseX, mouseY, sized , color(0,0,255));
-  mode = true;
+  
  
   if (fishRemaining == 0){
     scene = false;
@@ -127,23 +114,25 @@ void draw(){
   james.display();
   }else if (!scene){
     sized = 20;
-    
-    textSize(45);
-    
+    noStroke();
     fill(255,0,0);
+    rect(0,0, width, 75);
+    textSize(45);
     text("The Pond", width/2 , height/2 - 50);
     fill(#ffffff);
     textSize(35);
     if(fishRemaining == 0){
-      text("Click to Rule the Pond Again", width/2, (height/2)+50);
+      text("Click to Rule The Pond Again", width/2, (height/2)+50);
       textSize(20);
       text("", width/2, (height/2) +80);
     }else if (fishRemaining < numFish || (fishRemaining == numFish && havePlayed == true)){
-      text("Click to Enter the Pond Again", width/2, (height/2)+50);
+      textSize(20);
+      text("Click in the Space Above Enter The Pond Again", width/2, (height/2)+50);
       textSize(20);
       text("You have been eaten", width/2, (height/2));
     }if (havePlayed == false){
-      text("Click to Enter the Pond", width/2, (height/2));
+      textSize(30);
+      text("Click in the Space Above to Enter The Pond", width/2, (height/2));
       textSize(20);
       text("Use your mouse to navigate. Prey on the small and avoid the big. Rise to the top", 25, height/2 + 40, width-50, height/2 + 60);
       text("“I would say the smaller the pond, the more belligerent the fish.”  - Craig Brown", 25, (height/2) +120, width-50, (height/2)+150);
