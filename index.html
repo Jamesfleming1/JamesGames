@@ -1,50 +1,7 @@
 <!DOCTYPE html>
 	<html>
 		<style>
-		.tabs {
-			width:100%;
-			display:inline-block;
-		}
-		.tab-links: after{
-			display:block;
-			clear:both;
-			content:'';
-		}
-		.tab-links li {
-			margin:0px 5px;
-			float:left;
-			list-style:none;
-		}
-			.tab-links a{
-				padding:9px 15px;
-				display:inline-block;
-				border-radius: 3px 3xp 0px 0px;
-				background: #7FB5DA;
-				font-size:16px;
-				font-weight:600;
-				color:#4c4c4c;
-				transition:all linear 0.15s;
-			}
-			.tab-links a:hover{
-				background:#a7cce5;
-				text-decoration:none;
-			}
-		li.acive a, li.active a:hover{
-			background:#fff;
-			color:#4c4c4c;
-			}
-		.tab-content{
-			padding:15px;
-			border-radius:3px;
-			box-shadow:-1px 1px 1px rgba(0,0,0,0.15);
-			background:#fff;
-		}
-			.tab{
-				display:none;
-			}
-			.tab.active{
-				display:block;
-			}
+		
 		.header{
 			color: rgb(200, 50 , 50);
 		}
@@ -118,40 +75,11 @@
   ga('send', 'pageview');
 
 </script>
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
-				jQuery(document).ready(function(){
-					jQuery('.tabs .tab-links a').on('click', function(e){
-						var currentAttrValue = jquery(this).attr('href');
-						jQuery('.tabs' + currentAttrValue).show().siblings().hide();
-						jQuery(this).parent('li').addClass('active').siblings().removeClassed('active');
-						e.preventDefault();
-	
-					});
-				});
-			</script>
+			
 				
 		</head>
 		<body>
-		<div class = "tabs">
-			<ul>
-				<li class = "active" ><a href="#tab1">Tab 1 </a></li>
-				<li><a href ="#tab2">Tab 2</a></li>
-				<li><a href = "#tab3">Tab 3</a></li>
-			</ul>
-		</div>
-		<div class = "tab-content">
-			<div id = "#tab1" class = "tab active">
-				<p> welcome to tab #1</p>
-			</div>
-			<div id = "#tab2" class = "tab">
-				<p> elcome to tab @2</p>
-				
-			</div>
-			<div id = "#tab3" class = "tab">
-				<p>Welocum to tab @#3</p>
-			</div>
-			
-		</div>
+		
 	
 		<h1 class = "header" id = "title" > James Games  </h1>
 		<div>
